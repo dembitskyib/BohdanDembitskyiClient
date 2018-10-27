@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soap.service.lab.epam.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SoapUserServiceImplService" targetNamespace="http://soap.service.lab.epam.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.service.lab.epam.com/" elementFormDefault="unqualified" targetNamespace="http://soap.service.lab.epam.com/" version="1.0">
+
+  <xs:element name="authenticate" type="tns:authenticate"/>
+
+  <xs:element name="authenticateResponse" type="tns:authenticateResponse"/>
+
+  <xs:element name="authorize" type="tns:authorize"/>
+
+  <xs:element name="authorizeResponse" type="tns:authorizeResponse"/>
+
+  <xs:element name="deleteUser" type="tns:deleteUser"/>
+
+  <xs:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+
+  <xs:element name="getAllUsers" type="tns:getAllUsers"/>
+
+  <xs:element name="getAllUsersResponse" type="tns:getAllUsersResponse"/>
+
+  <xs:element name="getUsersByRole" type="tns:getUsersByRole"/>
+
+  <xs:element name="getUsersByRoleResponse" type="tns:getUsersByRoleResponse"/>
+
+  <xs:element name="role" type="tns:role"/>
+
+  <xs:element name="user" type="tns:user"/>
+
+  <xs:complexType name="authenticate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authenticateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:soapResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="soapResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="users" type="tns:user"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="roles" type="tns:role"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="user">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="role" type="tns:role"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUsersByRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="role" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUsersByRoleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:soapResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteUserResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:soapResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllUsers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllUsersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:soapResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authorize">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="userName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authorizeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:soapResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="role">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GUEST"/>
+      <xs:enumeration value="USER"/>
+      <xs:enumeration value="ADMIN"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getUsersByRoleResponse">
+    <wsdl:part element="tns:getUsersByRoleResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUser">
+    <wsdl:part element="tns:deleteUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserResponse">
+    <wsdl:part element="tns:deleteUserResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authorize">
+    <wsdl:part element="tns:authorize" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authorizeResponse">
+    <wsdl:part element="tns:authorizeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllUsersResponse">
+    <wsdl:part element="tns:getAllUsersResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticate">
+    <wsdl:part element="tns:authenticate" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUsersByRole">
+    <wsdl:part element="tns:getUsersByRole" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllUsers">
+    <wsdl:part element="tns:getAllUsers" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateResponse">
+    <wsdl:part element="tns:authenticateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SoapUserService">
+    <wsdl:operation name="authenticate">
+      <wsdl:input message="tns:authenticate" name="authenticate">
+    </wsdl:input>
+      <wsdl:output message="tns:authenticateResponse" name="authenticateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersByRole">
+      <wsdl:input message="tns:getUsersByRole" name="getUsersByRole">
+    </wsdl:input>
+      <wsdl:output message="tns:getUsersByRoleResponse" name="getUsersByRoleResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:input message="tns:deleteUser" name="deleteUser">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteUserResponse" name="deleteUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUsers">
+      <wsdl:input message="tns:getAllUsers" name="getAllUsers">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllUsersResponse" name="getAllUsersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authorize">
+      <wsdl:input message="tns:authorize" name="authorize">
+    </wsdl:input>
+      <wsdl:output message="tns:authorizeResponse" name="authorizeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapUserServiceImplServiceSoapBinding" type="tns:SoapUserService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="authenticate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="authenticate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="authenticateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsersByRole">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUsersByRole">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUsersByRoleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authorize">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="authorize">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="authorizeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SoapUserServiceImplService">
+    <wsdl:port binding="tns:SoapUserServiceImplServiceSoapBinding" name="SoapUserServiceImplPort">
+      <soap:address location="http://localhost:8888/BohdanDembitskyiService/soapUserService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

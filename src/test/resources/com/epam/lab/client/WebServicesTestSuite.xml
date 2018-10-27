@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="user service functional test suite">
+	<test name="UserServiceTest">
+		<classes>
+			<class name="com.epam.lab.client.RestUserServiceTest" />
+			<class name="com.epam.lab.client.SoapUserServiceTest" />
+		</classes>
+	</test>
+</suite>
